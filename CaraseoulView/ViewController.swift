@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
-            layout.minimumLineSpacing = -180
+            layout.minimumLineSpacing = -189
             layout.minimumInteritemSpacing = 0
         }
     }
@@ -93,7 +93,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
         cell.layer.zPosition = CGFloat(3 - indexPath.row)
-        cell.layer.cornerRadius = 30
+        cell.layer.cornerRadius = 12
         cell.layer.shadowColor = UIColor.gray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.layer.shadowOpacity = 0.3
@@ -144,7 +144,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let wid = CGFloat(indexPath.row * 10)
+        let wid = CGFloat(indexPath.row * 20)
         return CGSize(width: collectionView.frame.width - 20 - wid , height: collectionView.frame.height - 45 )
     }
 }
